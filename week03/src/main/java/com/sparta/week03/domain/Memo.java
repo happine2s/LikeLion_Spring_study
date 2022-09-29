@@ -1,4 +1,4 @@
-package domain;
+package com.sparta.week03.domain;
 
 import lombok.Getter;
 import lombok.NoArgsConstructor;
@@ -26,5 +26,10 @@ public class Memo {
     public Memo(MemoRequestDto requestDto){
         this.username=requestDto.getUsername();
         this.contents=requestDto.getContents();
+    }
+
+    public void update(MemoRequestDto requestDto){
+        this.username= requestDto.getUsername();
+        this.contents= requestDto.getContents();
     }
 }

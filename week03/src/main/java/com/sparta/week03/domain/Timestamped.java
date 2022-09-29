@@ -1,4 +1,4 @@
-package domain;
+package com.sparta.week03.domain;
 
 import org.springframework.data.annotation.CreatedDate;
 import org.springframework.data.annotation.LastModifiedDate;
