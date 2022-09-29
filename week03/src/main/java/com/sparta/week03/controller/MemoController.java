@@ -22,13 +22,22 @@ public class MemoController {
     }
 
     @GetMapping("/api/memos")
-    public List<Memo> getNamos(){
+    public List<Memo> getNames(){
         return memoRepository.findAllByOrderByModifiedAtDesc();
     }
 
     @DeleteMapping("/api/memos/{id}")
     public Long deleteMemo(@PathVariable Long id){
         memoRepository.deleteById(id);
+        return id;
+    }
+
+    @PutMapping("/api/memos/{id}")
+    public Long updateMemo(@PathVariable Long id, @RequestBody MemoRequestDto requestDto){
+//        혼자 풀이: 인자까지 다 맞추놓고는 메모 서비스 안쓰고 뭐하세요^^;
+//        Memo memo = memoRepository.findById(id);
+//        memo.update(requestDto);
+        memoService.update(id,requestDto);
         return id;
     }
 }

@@ -8,7 +8,7 @@ import javax.persistence.*;
 @NoArgsConstructor //기본 생성자 자동 생성
 @Getter
 @Entity //테이블과 연계됨을 명시
-public class Memo {
+public class Memo extends Timestamped{
     @GeneratedValue(strategy = GenerationType.AUTO) //sql의 auto_increment
     @Id //sql의 PK
     private Long id;
