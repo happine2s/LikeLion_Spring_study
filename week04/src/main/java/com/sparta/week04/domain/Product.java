@@ -1,15 +1,17 @@
 package com.sparta.week04.domain;
 
+import com.sparta.week04.dto.ItemDto;
+import com.sparta.week04.dto.ProductMypriceRequestDto;
+import com.sparta.week04.dto.ProductRequestDto;
 import lombok.Getter;
 import lombok.NoArgsConstructor;
 
 import javax.persistence.*;
-import java.sql.Timestamp;
 
 @Getter
 @NoArgsConstructor
 @Entity
-public class Product extends com.sparta.week02.domain.Timestamped {
+public class Product extends Timestamped {
 
     @GeneratedValue(strategy = GenerationType.AUTO)
     @Id
@@ -41,5 +43,12 @@ public class Product extends com.sparta.week02.domain.Timestamped {
     //관심 가격 변경 시 사용
     public void update(ProductMypriceRequestDto requestDto){
         this.myprice=requestDto.getMyprice();
+    }
+
+    public void updateByItemDto(ItemDto itemDto) {
+        this.title=itemDto.getTitle();
+        this.image=itemDto.getImage();
+        this.link=itemDto.getLink();
+        this.lprice=itemDto.getLprice();
     }
 }

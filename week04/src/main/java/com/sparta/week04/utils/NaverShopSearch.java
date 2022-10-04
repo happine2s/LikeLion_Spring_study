@@ -1,6 +1,6 @@
 package com.sparta.week04.utils;
 
-import com.sparta.week04.domain.ItemDto;
+import com.sparta.week04.dto.ItemDto;
 import org.json.JSONArray;
 import org.json.JSONObject;
 import org.springframework.http.*;
@@ -24,8 +24,8 @@ public class NaverShopSearch {
         HttpStatus httpStatus = responseEntity.getStatusCode();
         int status = httpStatus.value();
         String response = responseEntity.getBody();
-        System.out.println("Response status: " + status);
-        System.out.println(response);
+        //System.out.println("Response status: " + status);
+        //System.out.println(response);
 
         return response;
     }
@@ -37,7 +37,7 @@ public class NaverShopSearch {
 
         for(int i=0;i<items.length();i++){
             JSONObject itemJson=(JSONObject) items.get(i);
-            System.out.println(itemJson);
+            //System.out.println(itemJson);
             ItemDto itemDto=new ItemDto(itemJson);
             ret.add(itemDto);
         }
