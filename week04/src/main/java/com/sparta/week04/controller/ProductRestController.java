@@ -34,4 +34,10 @@ public class ProductRestController {
     public Long updateProduct(@PathVariable Long id, @RequestBody ProductMypriceRequestDto requestDto){
         return productService.update(id, requestDto);
     }
+
+    @DeleteMapping("/api/products/{id}")
+    public long deleteProduct(@PathVariable Long id){
+        productRepository.deleteById(id);
+        return id;
+    }
 }
